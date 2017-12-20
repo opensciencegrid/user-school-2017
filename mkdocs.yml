@@ -16,6 +16,82 @@ extra_javascript: []
 
 pages:
   - User School 2017:           index.md
+  - Logistics:
+    - General information:        logistics/index.md
+    - Visa requirements:          logistics/personal-info.md
+    - Travel planning:            logistics/travel.md
+    - Hotel information:          logistics/hotel.md
+    - Local transportation:       logistics/local-transportation.md
+    - School location:            logistics/location.md
+    - Meals at the School:        logistics/meals.md
+    - Fun in Madison:             logistics/fun.md
+    - Wednesday activities:       logistics/wednesday-activities.md
+    - Reimbursements:             logistics/reimbursements.md
+  - Curriculum:
+    - High-level overview:        curriculum/overview.md
+    - Detailed schedule:          curriculum/detailed-schedule.md
+    - Evening sessions:           curriculum/evening-sessions.md
+    - Final assignment:           curriculum/assignment.md
+  - Materials:
+    - All materials:              materials/index.md
+    - Set up OSG Connect:         materials/connect.md
+    - Day 1 Exercises:
+      - 1.1. Log in:              materials/day1/part1-ex1-login.md
+      - 1.2. Commands:            materials/day1/part1-ex2-commands.md
+      - 1.3. Run jobs:            materials/day1/part1-ex3-jobs.md
+      - 1.4. Log files:           materials/day1/part1-ex4-logs.md
+      - 1.5. Resource needs:      materials/day1/part1-ex5-request.md
+      - 1.6. Remove jobs:         materials/day1/part1-ex6-remove.md
+      - 1.7. (opt) Compiling:     materials/day1/part1-ex7-compile.md
+      - 2.1. condor_q:            materials/day1/part2-ex1-queue.md
+      - 2.2. condor_status:       materials/day1/part2-ex2-status.md
+      - 2.3. I/O files:           materials/day1/part2-ex3-files.md
+      - 2.4. queue N:             materials/day1/part2-ex4-queue-n.md
+      - 2.5. queue matching:      materials/day1/part2-ex5-queue-matching.md
+      - 2.6. queue from:          materials/day1/part2-ex6-queue-from.md
+      - 3.1. Retries:             materials/day1/part3-ex1-job-retry.md
+      - 3.2. Mandelbrot set:      materials/day1/part3-ex2-mandelbrot.md
+      - 3.3. Simple DAG:          materials/day1/part3-ex3-simple-dag.md
+      - 3.4. More complex DAG:    materials/day1/part3-ex4-complex-dag.md
+      - 4.1. Failed DAG jobs:     materials/day1/part4-ex1-failed-dag.md
+      - 4.2. DAG variables:       materials/day1/part4-ex2-dag-vars.md
+      - 4.3. DAG SPLICE:          materials/day1/part4-ex3-dag-splice.md
+      - 4.4. Bonus challenges:    materials/day1/part4-ex4-challenges.md
+    - Day 2 Exercises:
+      - 1.1. Refresher:           materials/day2/part1-ex1-submit-refresher.md
+      - 1.2. Submit host:         materials/day2/part1-ex2-login-scp.md
+      - 1.3. Jobs in OSG:         materials/day2/part1-ex3-submit-osg.md
+      - 2.1. Hardware in OSG:     materials/day2/part2-ex1-hardware-diffs.md
+      - 2.2. Software in OSG:     materials/day2/part2-ex2-software-diffs.md
+      - 3.1. Troubleshooting:     materials/day2/part4-ex1-troubleshooting.md
+    - Day 3 Exercises:
+      - 1.1. Compiling programs:  materials/day3/part1-ex1-compiling.md
+      - 1.2. Pre-compiled binary: materials/day3/part1-ex2-precompiled.md
+      - 1.3. Wrapper script:      materials/day3/part1-ex3-wrapper.md
+      - 1.4. Pre-packaging code:  materials/day3/part1-ex4-prepackaged.md
+      - 1.5. (opt) Arguments:     materials/day3/part1-ex5-arguments.md
+      - 2.1. Using MATLAB:        materials/day3/part2-ex1-matlab.md
+      - 2.2. Packaging Python:    materials/day3/part2-ex2-python-built.md
+      - 2.3. Installing Python:   materials/day3/part2-ex3-python-install.md
+      - 2.4. (opt) Containers:    materials/day3/part2-ex4-containers.md
+    - Day 4 Exercises:
+      - 1.1. OSG Connect:         materials/day4/part1-ex1-connect-intro.md
+      - 1.2. Quickstart:          materials/day4/part1-ex2-connect-quickstart.md
+      - 1.3. Software modules:    materials/day4/part1-ex3-connect-modules.md
+      - 1.4. (opt) Singularity:   materials/day4/part1-ex4-singularity.md
+      - 2.1. Data requirements:   materials/day4/part2-ex1-data-needs.md
+      - 2.2. HTCondor transfers:  materials/day4/part2-ex2-file-transfer.md
+      - 2.3. Splitting big data:  materials/day4/part2-ex3-blast-split.md
+      - 3.1. Web proxies:         materials/day4/part3-ex1-blast-proxy.md
+      - 3.2. StashCache Ⅰ:        materials/day4/part3-ex2-stashcache-shared.md
+      - 3.3. StashCache Ⅱ:        materials/day4/part3-ex3-stashcache-unique.md
+      - 4.1. Shared FS input:     materials/day4/part4-ex1-input.md
+      - 4.2. Shared FS output:    materials/day4/part4-ex2-output.md
+    - Day 5 Exercises:
+      - 1.1. Learn workflow:      materials/day5/part1-ex1-science-intro.md
+      - 1.2. Plan workflow:       materials/day5/part1-ex2-plan-workflow.md
+      - 1.3. Execute workflow:    materials/day5/part2-ex1-execute-workflow.md
+      - 1.4. (opt) Tune workflow: materials/day5/part2-ex2-workflow-tuning.md
 
 markdown_extensions:
   - admonition

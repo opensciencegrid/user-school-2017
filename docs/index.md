@@ -1,4 +1,4 @@
-!\[Madison skyline](/img/madison-skyline-1.jpg) <br> <span style="font-size: smaller;">(Image copyright Ann Althouse, licensed under Creative Commons, <http://www.flickr.com/photos/althouse/141467660/>)</span>
+![Madison skyline](/img/madison-skyline-1.jpg) <br> <span style="font-size: smaller;">(Image copyright Ann Althouse, licensed under Creative Commons, <http://www.flickr.com/photos/althouse/141467660/>)</span>
 
 # OSG User School 2017
 
@@ -10,7 +10,7 @@ During the school, 17–21 July, you will learn to use high-throughput computing
 using the national Open Science Grid (OSG) — to run large-scale computing applications that are at the heart of today’s
 cutting-edge science.  Through lectures, discussions, and **lots of hands-on activities** with experienced OSG staff,
 you will learn how HTC systems work, how to run and manage lots of jobs and huge datasets to implement a scientific
-computing workflow, and where to turn for more information and help.  Take a look at \[the high-level curriculum and
+computing workflow, and where to turn for more information and help.  Take a look at [the high-level curriculum and
 syllabus](curriculum/overview.md) for more details.
 
 The school is ideal for graduate students in any science or research domain where large-scale computing is a vital part
@@ -26,23 +26,23 @@ interest!
 ## Information for Participants
 
 - Curriculum
-    - \[High-level curriculum](curriculum/overview.md)
-    - \[Detailed schedule](curriculum/detailed-schedule.md)
-    - \[Materials](materials/index.md)
-    - \[Evening work sessions (optional)](curriculum/evening-sessions.md)
-    - \[Final assignment](curriculum/assignment.md)
+    - [High-level curriculum](curriculum/overview.md)
+    - [Detailed schedule](curriculum/detailed-schedule.md)
+    - [Materials](materials/index.md)
+    - [Evening work sessions (optional)](curriculum/evening-sessions.md)
+    - [Final assignment](curriculum/assignment.md)
 - Logistics
-    - \[General information and travel schedule](logistics/index.md)
-    - \[Visa requirements for non-resident aliens](logistics/personal-info.md)
-    - \[Travel planning to and from Madison](logistics/travel.md)
-    - \[Hotel information](logistics/hotel.md)
-    - \[Local transportation within Madison](logistics/local-transportation.md)
-    - \[School location](logistics/location.md)
-    - \[Meals at the School](logistics/meals.md)
-    - \[Fun things to do in Madison](logistics/fun.md) and \[Wednesday activities](logistics/wednesday-activities.md)
-    - \[Reimbursements](logistics/reimbursements.md)
+    - [General information and travel schedule](logistics/index.md)
+    - [Visa requirements for non-resident aliens](logistics/personal-info.md)
+    - [Travel planning to and from Madison](logistics/travel.md)
+    - [Hotel information](logistics/hotel.md)
+    - [Local transportation within Madison](logistics/local-transportation.md)
+    - [School location](logistics/location.md)
+    - [Meals at the School](logistics/meals.md)
+    - [Fun things to do in Madison](logistics/fun.md) and [Wednesday activities](logistics/wednesday-activities.md)
+    - [Reimbursements](logistics/reimbursements.md)
 
-!\[OSG User School 2017 group photo](files/osg-user-school-2017-group.png)
+![OSG User School 2017 group photo](files/osg-user-school-2017-group.png)
 <br>
 <span style="font-size: smaller;">OSG User School 2017 group photo</span>
 
