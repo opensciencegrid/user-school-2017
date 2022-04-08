@@ -1,110 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta http-equiv="refresh" content="0; url='https://osg-htc.org/user-school-2017/materials/day1/part4-ex3-dag-splice/index.html'" />
+        </head>
+        <body> 
+            <p>
+                This page has moved to a <a href="https://osg-htc.org/user-school-2017/materials/day1/part4-ex3-dag-splice/index.html">
+              new location</a>.
+            </p> 
+        </body>      
+    </html>
     
-    
-    <link rel="canonical" href="https://opensciencegrid.github.io/user-school-2017/materials/day1/part4-ex3-dag-splice/">
-    <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>4.3. DAG SPLICE - OSG User School 2017</title>
-    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/highlight.css">
-    <link href="../../../css/extra.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../../js/highlight.pack.js"></script>
-    
-    <base target="_top">
-    <script>
-      var base_url = '../../..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "Composing Larger DAGs From Simpler DAGs With SPLICE", url: "#_top", children: [
-              {title: "Name your SPLICE subroutine", url: "#name-your-splice-subroutine" },
-          ]},
-        ];
-
-    </script>
-    <script src="../../../js/base.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
-    
-
-    <h1 id="composing-larger-dags-from-simpler-dags-with-splice">Composing Larger DAGs From Simpler DAGs With SPLICE<a class="headerlink" href="#composing-larger-dags-from-simpler-dags-with-splice" title="Permanent link">&para;</a></h1>
-<p>The objective of this exercise is to show how to build up sophisticated DAGs built from smaller DAG files without changing the original files.</p>
-<p>The basis of a lot of computer programming is to work up a small example, get it correct, and reuse it a building block for more sophisticated programs. The same is true for DAG files, and SPLICE is one way to do so.</p>
-<p>We are going to use the Mandelbrot DAG from our previous example, and use that as a “black box”, so that we can add on to it, without changing that DAG at all.</p>
-<h2 id="name-your-splice-subroutine">Name your SPLICE subroutine<a class="headerlink" href="#name-your-splice-subroutine" title="Permanent link">&para;</a></h2>
-<p>Our previously created DAG file is now going to be a SPLICE, or subroutine. We first need to create a master DAG file, which will call this as a splice, and name it. Let's call the splice MONTAGE. We will simple compute the size of the montage file we created in the previous DAG, with a new node which we will tack on to the last node in the previous file. We'll run the wc (word count) command with the -c argument to do so. The new submit file should look something like this;</p>
-<div class="codehilite"><pre><span></span><span class="go">executable              = /usr/bin/wc</span>
-<span class="go">arguments               = -c montage.out</span>
-<span class="go">log                     = wc.log</span>
-<span class="go">output                  = wc.out</span>
-<span class="go">error                   = wc.err</span>
-<span class="go">transfer_input_files = montage.out</span>
-<span class="go">request_memory = 1G</span>
-<span class="go">request_disk       = 1G</span>
-<span class="go">request_cpus      = 1</span>
-<span class="go">queue</span>
-</pre></div>
-
-
-<p>By now, you should be able to create a simple dag file whose parent is the previous DAG (as a splice), and whose child is just this one node.. If you need help, check the HTCondor manual for <a href="http://www.cs.wisc.edu/condor/manual/current/2_10DAGMan_Applications.html">for a description of how to use SPLICE</a>.</p>
-
-  <br>
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../part4-ex4-challenges/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../part4-ex4-challenges/" class="btn btn-xs btn-link">
-        4.4. Bonus challenges
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../part4-ex2-dag-vars/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../part4-ex2-dag-vars/" class="btn btn-xs btn-link">
-        4.2. DAG variables
-      </a>
-    </div>
-    
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
-</html>

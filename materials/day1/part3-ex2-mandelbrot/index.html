@@ -1,132 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta http-equiv="refresh" content="0; url='https://osg-htc.org/user-school-2017/materials/day1/part3-ex2-mandelbrot/index.html'" />
+        </head>
+        <body> 
+            <p>
+                This page has moved to a <a href="https://osg-htc.org/user-school-2017/materials/day1/part3-ex2-mandelbrot/index.html">
+              new location</a>.
+            </p> 
+        </body>      
+    </html>
     
-    
-    <link rel="canonical" href="https://opensciencegrid.github.io/user-school-2017/materials/day1/part3-ex2-mandelbrot/">
-    <link rel="shortcut icon" href="../../../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>3.2. Mandelbrot set - OSG User School 2017</title>
-    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/highlight.css">
-    <link href="../../../css/extra.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../../js/highlight.pack.js"></script>
-    
-    <base target="_top">
-    <script>
-      var base_url = '../../..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "Monday Exercise 3.2: A Brief Detour Through the Mandelbrot Set", url: "#_top", children: [
-              {title: "Running goatbrot From the Command Line", url: "#running-goatbrot-from-the-command-line" },
-              {title: "Dividing the Work into Smaller Pieces", url: "#dividing-the-work-into-smaller-pieces" },
-              {title: "Try it!", url: "#try-it" },
-          ]},
-        ];
-
-    </script>
-    <script src="../../../js/base.js"></script> 
-</head>
-
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
-
-
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
-    
-
-    <style type="text/css"> pre em { font-style: normal; background-color: yellow; } pre strong { font-style: normal; font-weight: bold; color: \#008; } </style>
-
-<h1 id="monday-exercise-32-a-brief-detour-through-the-mandelbrot-set">Monday Exercise 3.2: A Brief Detour Through the Mandelbrot Set<a class="headerlink" href="#monday-exercise-32-a-brief-detour-through-the-mandelbrot-set" title="Permanent link">&para;</a></h1>
-<p>Before we explore using DAGs to implement workflows, let’s get a more interesting job. Let’s make pretty pictures!</p>
-<p>We have a small program that draws pictures of the Mandelbrot set. You can <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">read about the Mandelbrot set on Wikipedia</a>, or you can simply appreciate the pretty pictures. It’s a fractal.</p>
-<p>We have a simple program that can draw the Mandelbrot set. It's called <code>goatbrot</code>, and you can find it in <code>/usr/local/bin/goatbrot</code>.</p>
-<h2 id="running-goatbrot-from-the-command-line">Running goatbrot From the Command Line<a class="headerlink" href="#running-goatbrot-from-the-command-line" title="Permanent link">&para;</a></h2>
-<p>You can generate the Mandelbrot set with two simple commands.</p>
-<ol>
-<li>Generate a PPM image of the Mandelbrot set:\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>/usr/local/bin/goatbrot -i 1000 -o tile_000000_000000.ppm -c 0,0 -w 3 -s 1000,1000</strong></pre></li>
-<li>Convert the image to the JPEG format:\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>convert tile_000000_000000.ppm mandel.jpg</strong></pre></li>
-</ol>
-<p>The <code>goatbroat</code> program takes several parameters. Let's break them down:</p>
-<ul>
-<li><code>-i 1000</code> The number of iterations. Bigger numbers generate more accurate images but are slower to run.</li>
-<li><code>-o tile_000000_000000.ppm</code> The output file to generate.</li>
-<li><code>-c 0,0</code> The center point of the image. Here it is the point (0,0).</li>
-<li><code>-w 3</code> The width of the image. Here is 3.</li>
-<li><code>-s 1000,1000</code> The size of the final image. Here we generate a picture that is 1000 pixels wide and 1000 pixels tall.</li>
-</ul>
-<h2 id="dividing-the-work-into-smaller-pieces">Dividing the Work into Smaller Pieces<a class="headerlink" href="#dividing-the-work-into-smaller-pieces" title="Permanent link">&para;</a></h2>
-<p>The Mandelbrot set can take a while to create, particularly if you make the iterations large or the image size large. What if we broke the creation of the image into multiple invocations then stitched them together? Once we do that, we can run the each goatbroat in parallel in our cluster. Here's an example you can run by hand.</p>
-<ol>
-<li>Run goatbroat 4 times:\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>/usr/local/bin/goatbrot -i 1000 -o tile_000000_000000.ppm -c -0.75,0.75 -w 1.5 -s 500,500</strong></li>
-</ol>
-<p><span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>/usr/local/bin/goatbrot -i 1000 -o tile_000000_000001.ppm -c 0.75,0.75 -w 1.5 -s 500,500</strong> <span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>/usr/local/bin/goatbrot -i 1000 -o tile_000001_000000.ppm -c -0.75,-0.75 -w 1.5 -s 500,500</strong> <span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>/usr/local/bin/goatbrot -i 1000 -o tile_000001_000001.ppm -c 0.75,-0.75 -w 1.5 -s 500,500</strong></pre></p>
-<ol>
-<li>Stitch them small images together into the complete image (in JPEG format):\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>montage tile_000000_000000.ppm tile_000000_000001.ppm tile_000001_000000.ppm tile_000001_000001.ppm -mode Concatenate -tile 2x2 mandel.jpg</strong></pre></li>
-</ol>
-<p>This will produce the same image as above. We divided the image space into a 2×2 grid and ran <code>goatbrot</code> on each section of the grid. The <code>montage</code> program simply stitches the files together and writes out the final image in JPEG format.</p>
-<h2 id="try-it">Try it!<a class="headerlink" href="#try-it" title="Permanent link">&para;</a></h2>
-<p>Run the commands above, make sure you can create the Mandelbrot image. When you create the image, you might wonder how you can view it. If you're comfortable with <code>scp</code> you can copy it back to your computer to view it. Otherwise you can view it in your web browser in three easy steps.</p>
-<ol>
-<li>Make your web directory (you only need to do this once):\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>cd ~</strong></li>
-</ol>
-<p><span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>mkdir ~/public_html</strong> <span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>chmod 0711 .</strong> <span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>chmod 0755 public_html</strong></pre></p>
-<ol>
-<li>Copy the image into your web directory:\ <pre class="screen"><span class="twiki-macro UCL_PROMPT_SHORT"></span> <strong>cp mandel.jpg ~/public_html/</strong></pre></li>
-<li>Access the URL below in your web browser (change <strong>USER</strong> to your username on the submit machine):\ <pre class="file"><a href="http://learn.chtc.wisc.edu/">http://learn.chtc.wisc.edu/</a>~<strong><em>USER</em></strong>/mandel.jpg</pre></li>
-</ol>
-
-  <br>
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../part3-ex3-simple-dag/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../part3-ex3-simple-dag/" class="btn btn-xs btn-link">
-        3.3. Simple DAG
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../part3-ex1-job-retry/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../part3-ex1-job-retry/" class="btn btn-xs btn-link">
-        3.1. Retries
-      </a>
-    </div>
-    
-  </div>
-
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
-</html>
